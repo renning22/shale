@@ -2,32 +2,38 @@
 
 Shale is aiming to bring cloud computing to Filecoin and make Storage Providers (SPs) directly compete with AWS, Google Cloud, etc..
 
-With Shale, SPs are able to lease and monetize their computing devices (CPU/RAM/GPU severs) with access to the data they sealed.
+With Shale, SPs are able to lease and monetize their computing devices (CPU/RAM/GPU severs) with access to their sealing data.
 
-Shale is targeting native high-performance computing such as AI/ML training/inference usually against open and large datasets, but any other traditional tasks are possible, such as C/C++ compiling, short-time web serving, data-processing etc..
+Shale is targeting on high-performance/native computing such as AI/ML training/inference usually against open and large datasets, but any other general tasks are possible, such as C/C++ compiling, short-time web serving, data-processing etc..
 
 ## Design
 
 The idea is sending programs around to where the data locate, i.e. in the data center of SP, and make the sealed data (Filecoin+ deals) accessible by disk mouting.
+
 ### SSH-payment-tunnel
 
 Just like normal SSHs but with local cryptographic payment tunnel that posts final ZKP to Shale layer-2 on FVM to claim rewards.
 
 Both parties could choose to terminate the session at anytime and not extend the lease.
 
-This framework with future plugins could prevent most cheating and bad behaviors.
+This framework is designed to prevent cheating and bad behaviors with future plugins.
 
-### Layer-2 Marketplace
+### Shale Layer-2 Marketplace
 
-There will be Shale smart contracts on FVM for coordinating orders between clients and SPs that includes exchanging pub-keys, claiming final rewards and leaving ratings/reviews.
+There will be smart contracts on FVM for order coordination between clients and SPs, where:
+
+* Clients create orders with their SSH pub-keys, prices, time and resource requirments
+* SPs accept orders, confirming by clients with collaterals
+* SPs upload payment-tunnel ZKPs to claim rewards
+* Clients post ratings/reviews based on their time/usage.
 
 ### High-performance native computing
 
 Programs are running natively in container with access to local accelerators (GPU).
 
-All web1/web2 software ecosystems (unix, apt-get, gcc, python, nodejs, etc.) are available thanks to container.
+All traditional web1/web2 software ecosystems (unix, apt-get, gcc, python, nodejs, etc.) become available, thanks to container technology.
 
-Examples: Fortran C/C++ compiling, ML training, inferecing, data processing, short-time serving etc.. 
+Examples: C/C++ compiling, ML training/inference, general data pipline/processing, short-time serving etc.. 
 
 ## Implementation
 
@@ -38,7 +44,7 @@ The first implementation is a terminal command-line tool (CLI) that focused on d
 * SP spawns docker containers on GPU server
 * SP auto-provisions SSH server and client's pub-key inside container
 * Mock SSH-payment-tunnel UI
-
+* Client runs a ML training task remotely in the container
 
 ## Client-side
 
@@ -58,13 +64,11 @@ shale give-me-container \
   -- bash
 ```
 
-
 ## Server-side
 
-For storage providers who want to lease their severs.
+For those storage providers who want to lease their server.
 
 ### Start a specfic container per request (low-level command)
-
 
 ```bash
 shale start-specific-container
