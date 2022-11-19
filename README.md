@@ -2,13 +2,13 @@
 
 Shale is aiming to bring cloud computing to Filecoin and make Storage Providers (SPs) directly compete with AWS, Google Cloud, etc..
 
-With Shale, SPs are able to lease and monetize their computing devices (CPU/RAM/GPU severs) with access to their sealing data.
+With Shale, SPs are able to get FILs by leasing/monetizing their computing devices (CPU/RAM/GPU servers) with access to their sealing data.
 
-Shale is targeting on high-performance/native computing such as AI/ML training/inference usually against open and large datasets, but any other general tasks are possible, such as C/C++ compiling, short-time web serving, data-processing etc..
+Shale is targeting on native high-performance computing such as AI/ML training/inference, usually against large/open datasets. Any traditional tasks are possible, such as C/C++ compiling, short-time web serving, general data-processing etc..
 
 ## Design
 
-The idea is sending programs around to where the data locate, i.e. in the data center of SP, and make the sealed data (Filecoin+ deals) accessible by disk mouting.
+The idea is sending programs around to where the data locate (i.e. the data center of SP), and utilizing those Filecoin+ deals by disk mouting.
 
 Programs here refer to off-chain, native C/C++, CUDA executables.
 
@@ -62,6 +62,7 @@ shale give-me-container \
   --num_cpus=10 \
   --num_rams=12Gi \
   --num_gpus=1 \
+  --bandwidth=1Mi \
   --image=cuda-ubuntu18.04 \
   --mnt=<data_cid_1>:/mnt/mnist.zip \
   --mnt=<data_cid_2>:/mnt/cifar-100.zip \
