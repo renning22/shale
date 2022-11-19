@@ -77,7 +77,7 @@ For those storage providers who want to lease their server.
 ### Start a specfic container per request (low-level command)
 
 ```bash
-shale start-specific-container
+shale lease-container ...
 ```
 
 ### Start Daemon
