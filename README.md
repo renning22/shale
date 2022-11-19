@@ -1,9 +1,8 @@
 # Shale - Decentralized Cloud
 
-Shale is aiming to bring cloud computing to Filcoin and make Storage Providers (SPs) directly compete with AWS, Google Cloud, etc..
+Shale is aiming to bring cloud computing to Filecoin and make Storage Providers (SPs) directly compete with AWS, Google Cloud, etc..
 
-With Shale, SPs are able to lease and monetize their computing devices
-(CPU/RAM/GPU severs) with access to the data they sealed.
+With Shale, SPs are able to lease and monetize their computing devices (CPU/RAM/GPU severs) with access to the data they sealed.
 
 Shale is targeting native high-performance computing such as AI/ML training/inference usually against open and large datasets, but any other traditional tasks are possible, such as C/C++ compiling, short-time web serving, data-processing etc..
 
