@@ -16,15 +16,16 @@ Programs here refer to off-chain, native C/C++, CUDA executables.
 
 ### SSH-payment-tunnel
 
-Just like normal SSHs but with local cryptographic payment tunnel that posts final ZKP to Shale layer-2 on FVM to claim rewards.
+Just like normal SSH, but equipped with a local cryptographic payment tunnel, which accumulates fractional payments and aggregates them to ZK proofs in the end.
+The ZK proofs will be posted to Shale layer-2 by SPs.
 
-Both parties could choose to terminate the session at anytime and not extend the lease.
+Both parties could terminate the lease anytime.
 
-This framework is designed to prevent cheating and bad behaviors with future plugins.
+The design is to accommodate future plugins for in-place monitering/benchmarking of session quality to catch potential cheating behaviours.
 
 ### Shale Layer-2 Marketplace
 
-There will be smart contracts on FVM for order coordination between clients and SPs, where:
+There will be smart contracts on FVM for coordinating orders between clients and SPs, where:
 
 * Clients create orders with their SSH pub-keys, prices, time and resource requirments
 * SPs accept orders, confirming by clients with collaterals
