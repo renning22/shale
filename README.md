@@ -10,6 +10,10 @@ Shale is targeting on high-performance/native computing such as AI/ML training/i
 
 The idea is sending programs around to where the data locate, i.e. in the data center of SP, and make the sealed data (Filecoin+ deals) accessible by disk mouting.
 
+Programs here refer to off-chain, native C/C++, CUDA executables.
+
+![architecture](doc/shale_architecture.png)
+
 ### SSH-payment-tunnel
 
 Just like normal SSHs but with local cryptographic payment tunnel that posts final ZKP to Shale layer-2 on FVM to claim rewards.
