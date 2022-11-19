@@ -1,28 +1,45 @@
 # Shale - Decentralized Cloud
 
-Shale is a toolkit that makes Filecoin Storage Providers (SP) be able to lease/monetize their
-CPU/GPU severs to provide cloud computing businesses that directly compete with AWS, google cloud, etc..
+Shale is aiming to bring cloud computing to Filcoin and make Storage Providers (SPs) directly compete with AWS, Google Cloud, etc..
 
-The idea is sending programs to where the data located, i.e. in the data center of SP, and make the 
-data (Filecoin sectors/deals) accessible by the programs by disk mouting.
+With Shale, SPs are able to lease and monetize their computing devices
+(CPU/RAM/GPU severs) with access to the data they sealed.
 
-The first implementation is to remote-spawn a docker container on SP's GPU-server (usually the sealing server),
-and make client login-able by pub-key injecting with a SSH-payment-tunnel.
+Shale is targeting native high-performance computing such as AI/ML training/inference usually against open and large datasets, but any other traditional tasks are possible, such as C/C++ compiling, short-time web serving, data-processing etc..
 
-## SSH-payment-tunnel
+## Design
 
-Just like a normal SSH but with transfering payment tunnel, extend leasing at minutes-level, and posting final ZKP to
-Shale layer-2 on FVM.
+The idea is sending programs around to where the data locate, i.e. in the data center of SP, and make the sealed data (Filecoin+ deals) accessible by disk mouting.
+### SSH-payment-tunnel
 
-The design of this mechanism is to prevent cheating behaviors for most cases.
+Just like normal SSHs but with local cryptographic payment tunnel that posts final ZKP to Shale layer-2 on FVM to claim rewards.
 
-## High-performance and native runtimes
+Both parties could choose to terminate the session at anytime and not extend the lease.
 
-Programs are running natively on CPUs with accelerators like GPUs (thanks container technology).
+This framework with future plugins could prevent most cheating and bad behaviors.
 
-All web1/web2 software ecosystems (unix, apt-get, gcc, python, nodejs, etc.) are available.
+### Layer-2 Marketplace
 
-E.g. be able to run compiling, ML training, inferecing, data processing, short-time serving etc.. 
+There will be Shale smart contracts on FVM for coordinating orders between clients and SPs that includes exchanging pub-keys, claiming final rewards and leaving ratings/reviews.
+
+### High-performance native computing
+
+Programs are running natively in container with access to local accelerators (GPU).
+
+All web1/web2 software ecosystems (unix, apt-get, gcc, python, nodejs, etc.) are available thanks to container.
+
+Examples: Fortran C/C++ compiling, ML training, inferecing, data processing, short-time serving etc.. 
+
+## Implementation
+
+The first implementation is a terminal command-line tool (CLI) that focused on demostrating the using experiecnes, which includes:
+
+* Client lists SPs with available datasets 
+* Client sends request to particular SP
+* SP spawns docker containers on GPU server
+* SP auto-provisions SSH server and client's pub-key inside container
+* Mock SSH-payment-tunnel UI
+
 
 ## Client-side
 
@@ -30,7 +47,7 @@ For those who have Shales(FILs) and want to rent computing units.
 
 ### Request a container
 ```bash
-> shale give-me-container \
+shale give-me-container \
   --miner=f01946720 \
   --price=0.01fil/min \
   --num_cpus=10 \
@@ -43,19 +60,19 @@ For those who have Shales(FILs) and want to rent computing units.
 ```
 
 
-# Server-side
+## Server-side
 
 For storage providers who want to lease their severs.
 
-## Start a specfic container per request (low-level command)
+### Start a specfic container per request (low-level command)
 
 
 ```bash
-
 shale start-specific-container
-
 ```
 
-## Start Daemon
+### Start Daemon
 
-TODO.
+Daemon that accepts requests and start containers automatically.
+
+TBD.
