@@ -20,8 +20,17 @@ def list():
 @click.option('--num_gpus', default=1)
 @click.option('--bandwidth', default='1Mi')
 @click.option('--image', default='cuda-ubuntu18.04')
-def give_me_container(miner, price, num_cpus, num_rams, num_gpus, bandwidth, image):
-    give_me_container_demo(miner, price, num_cpus, num_rams, num_gpus, bandwidth, image)
+@click.option('--mnt', multiple=True)
+def give_me_container(miner, price, num_cpus, num_rams, num_gpus, bandwidth, image, mnt):
+    give_me_container_demo(
+        miner=miner,
+        price=price,
+        num_cpus=num_cpus,
+        num_rams=num_rams,
+        num_gpus=num_gpus,
+        bandwidth=bandwidth,
+        image=image,
+        mnt=mnt)
 
 @click.command()
 def lease_container():
