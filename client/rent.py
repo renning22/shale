@@ -3,13 +3,10 @@ import time
 import uuid
 from subprocess import check_output
 
-from rich.console import Console, Group
+from rich.console import Console
 from rich.live import Live
 from rich.panel import Panel
 from rich.progress import Progress, TextColumn, TimeElapsedColumn
-from rich.columns import Columns
-from rich.layout import Layout
-
 _HARDCODE_PROVIDER_PORT = 8000
 _HARDCODE_PROVIDER_IP = '61.155.163.13'
 _HARDCODE_PROVIDER_SSH_CMD = f'ssh root@{_HARDCODE_PROVIDER_IP} -p {_HARDCODE_PROVIDER_PORT}'
