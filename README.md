@@ -42,7 +42,7 @@ Examples: C/C++ compiling, ML training/inference, general data pipeline/processi
 
 ## Implementation
 
-The first implementation is a terminal command-line tool (CLI) that focused on demostrating the using experiecnes, which includes:
+The first implementation is a terminal command-line tool (CLI) that focused on demonstrating the using experiences, which includes:
 
 * Client lists SPs with available datasets 
 * Client sends request to particular SP
