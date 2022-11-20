@@ -50,11 +50,6 @@ def lease_container(external_ip, num_cpus, num_rams, num_gpus, image, cache_dir,
     spawn_container(external_ip, num_cpus, num_rams, num_gpus,
                     image, cache_dir, fullnode_ip, mount)
 
-
-@click.command()
-def lease_container():
-    click.echo('lease_container')
-
 cli.add_command(list)
 cli.add_command(give_me_container)
 cli.add_command(lease_container)
