@@ -2,7 +2,7 @@
 
 Shale is aiming to bring cloud computing to Filecoin and make Storage Providers (SPs) directly compete with AWS, Google Cloud, etc..
 
-With Shale, SPs are able to get FILs by leasing/monetizing their computing devices (CPU/RAM/GPU servers) with access to their sealed data.
+With Shale, SPs are monetizing(e.g., earning FIL) their computing devices (CPU/RAM/GPU servers) by leasing the computing resource together with their sealed data.
 
 Shale is targeting on native high-performance computing such as AI/ML training/inference, usually against large/open datasets. Any traditional tasks are possible, such as C/C++ compiling, short-time web serving, general data-processing etc..
 
@@ -46,14 +46,14 @@ The first implementation is a terminal command-line tool (CLI) that focused on d
 
 * Client lists SPs with available datasets 
 * Client sends request to particular SP
-* SP spawns docker containers on GPU server
+* SP spawns docker containers on server with required accelerators(e.g., GPUs)
 * SP auto-provisions SSH server and client's pub-key inside container
 * Mock SSH-payment-tunnel UI
 * Client runs a ML training task remotely in the container
 
 ## Client-side
 
-For those who have Shales(FILs) and want to rent computing units.
+For those who have Shales(FILs) and want to rent computing resources.
 
 ### List all SPs
 
@@ -71,7 +71,7 @@ shale give-me-container \
   --image=cuda-ubuntu18.04 \
   --mnt=<data_cid_1>:/mnt/mnist.zip \
   --mnt=<data_cid_2>:/mnt/cifar-100.zip \
-  -- bash
+  --ssh_pubkey=~/.ssh/id_rsa.pub
 ```
 
 ## Server-side
