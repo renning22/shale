@@ -1,58 +1,48 @@
 
 import time
+import random
+import uuid
 
 from rich.console import Console, Group
 from rich.live import Live
 from rich.panel import Panel
-from rich.progress import TransferSpeedColumn, Progress, TextColumn, TimeElapsedColumn
+from rich.progress import Progress, TextColumn, TimeElapsedColumn
+from rich.columns import Columns
+from rich.layout import Layout
+
+_HARDCODE_PROVIDER = 'ssh root@61.155.163.13 -p 8000'
 
 def give_me_container_demo(**argkws):
-    # overall progress bar
-    overall_progress = Progress(
-        TimeElapsedColumn(), TransferSpeedColumn(), TextColumn("{task.description}")
-    )
-    # group of progress bars;
-    # some are always visible, others will disappear when progress is complete
-    progress_group = Group(
-        Panel(overall_progress),
-    )
-
-    # tuple specifies how long each step takes for that app
-    step_actions = ("downloading", "configuring", "building", "installing")
-    apps = [
-        ("one", (2, 1, 4, 2)),
-        ("two", (1, 3, 8, 4)),
-        ("three", (2, 1, 3, 2)),
-    ]
-
-    # create overall progress bar
-    overall_task_id = overall_progress.add_task("", total=len(apps))
-
-    def run_steps(console, step_times):
-        """Run steps for a single app, and update corresponding progress bars."""
-
-        for idx, step_time in enumerate(step_times):
-            # add progress bar for this step (time elapsed + spinner)
-            action = step_actions[idx]
-
-            # run steps, update progress
-            for _ in range(step_time):
-                console.log("Server starting...")
-                console.log("Serving on http://127.0.0.1:8000")
-                time.sleep(0.5)
-
     console = Console()
-    with Live(progress_group, console=console):
 
-        for idx, (name, step_times) in enumerate(apps):
-            # update message on overall progress bar
-            top_descr = "[bold #AAAAAA](%d out of %d apps installed)" % (idx, len(apps))
-            overall_progress.update(overall_task_id, description=top_descr)
-            run_steps(console, step_times)
-            # increase overall progress now this task is done
-            overall_progress.update(overall_task_id, advance=1)
+    session_id = str(uuid.uuid4())
+    session_status = Progress(
+        TimeElapsedColumn(),
+        TextColumn('Spent: [b bright_blue]{task.completed:.3f} FILs'),
+        TextColumn(f' Session: [b]{_HARDCODE_PROVIDER}'),
+    )
 
-        # final update for message on overall progress bar
-        overall_progress.update(
-            overall_task_id, description="[bold green]%s apps installed, done!" % len(apps)
-        )
+    console.log('Starting request...')
+    console.log(argkws)
+    time.sleep(2)
+
+    console.log(f'Starting session: {session_id}')
+    time.sleep(2)
+
+    console.log('Container created...')
+    console.log('SSH pub key injected...')
+    console.log('Please run:')
+    console.log(_HARDCODE_PROVIDER)
+    time.sleep(2)
+    
+    fil_spent_task_id = session_status.add_task("")
+    fil_per_min = float(argkws['price'].removesuffix('FIL/min'))
+    fil_per_sec = fil_per_min / 60.0
+
+    with Live(Panel(session_status), console=console):
+        for i in range(10000):
+            console.log("CPU: ...")
+
+            # session_spent.update(fil_spent_task_id, total=100, completed=random.randrange(100))
+            session_status.update(fil_spent_task_id, advance=fil_per_sec)
+            time.sleep(1)
