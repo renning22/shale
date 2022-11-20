@@ -26,9 +26,10 @@ def give_me_container_demo(**argkws):
 
     session_id = str(uuid.uuid4())
     session_status = Progress(
+        TextColumn('SSH Payment Channel'),
         TimeElapsedColumn(),
-        TextColumn('Spent: [b bright_blue]{task.completed:.3f} FILs'),
-        TextColumn(f' Session: [b]{_HARDCODE_PROVIDER_SSH_CMD}'),
+        TextColumn('Spent [b bright_blue]{task.completed:.3f} FILs'),
+        TextColumn(f' [b] > {_HARDCODE_PROVIDER_SSH_CMD}'),
     )
 
     console.log('Starting request...')
@@ -53,8 +54,10 @@ def give_me_container_demo(**argkws):
     fil_per_min = float(argkws['price'].removesuffix('FIL/min'))
     fil_per_sec = fil_per_min / 60.0
 
+    start_time = time.time()
     with Live(Panel(session_status), console=console, auto_refresh=True):
         for i in range(10000):
             console.log(_get_remote_usage())
-            session_status.update(fil_spent_task_id, advance=fil_per_sec)
+            elapsed_sec = time.time() - start_time
+            session_status.update(fil_spent_task_id, completed=elapsed_sec * fil_per_sec)
             time.sleep(1)
