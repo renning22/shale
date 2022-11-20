@@ -21,14 +21,14 @@ The ZK proofs will be posted to Shale layer-2 by SPs.
 
 Both parties could terminate the lease anytime.
 
-The design is to accommodate future plugins for in-place monitering/benchmarking of session quality to catch potential cheating behaviours.
+The design is to accommodate future plugins for in-place monitoring/benchmark of session quality to catch potential cheating behaviors.
 
 ### Shale Layer-2 Marketplace
 
 There will be smart contracts on FVM for coordinating orders between clients and SPs, where:
 
-* Clients create orders with their SSH pub-keys, prices, time and resource requirments
-* SPs accept orders, confirming by clients with collaterals
+* Clients create orders with their SSH pub-keys, prices, time and resource requirements
+* SPs accept orders, confirming by clients with collateral
 * SPs upload payment-tunnel ZKPs to claim rewards
 * Clients post ratings/reviews based on their time/usage.
 
@@ -38,7 +38,7 @@ Programs are running natively in container with access to local accelerators (GP
 
 All traditional web1/web2 software ecosystems (unix, apt-get, gcc, python, nodejs, etc.) become available, thanks to container technology.
 
-Examples: C/C++ compiling, ML training/inference, general data pipline/processing, short-time serving etc.. 
+Examples: C/C++ compiling, ML training/inference, general data pipeline/processing, short-time serving etc.. 
 
 ## Implementation
 
