@@ -10,8 +10,10 @@ from rich.progress import Progress, TextColumn, TimeElapsedColumn
 from rich.columns import Columns
 from rich.layout import Layout
 
+_HARDCODE_PROVIDER_PORT = 8000
 _HARDCODE_PROVIDER_IP = '61.155.163.13'
-_HARDCODE_PROVIDER_SSH_CMD = f'> ssh root@{_HARDCODE_PROVIDER_IP} -p 8000'
+_HARDCODE_PROVIDER_SSH_CMD = f'ssh root@{_HARDCODE_PROVIDER_IP} -p {_HARDCODE_PROVIDER_PORT}'
+_HARDCODE_PROVIDER_DATA_COPY_CMD = f'scp -P {_HARDCODE_PROVIDER_PORT} ./example/mnist_train.py root@{_HARDCODE_PROVIDER_IP}:~/'
 
 def _get_remote_usage():
     cmd = ['ssh', '-q', f'root@{_HARDCODE_PROVIDER_IP}', '-p 21022', '-n', "docker stats --no-stream --format '{{.CPUPerc}}, {{.MemUsage}}'"]
@@ -38,8 +40,13 @@ def give_me_container_demo(**argkws):
 
     console.log('Container created...')
     console.log('SSH pub key injected...')
-    console.log('Please run:')
-    console.log(_HARDCODE_PROVIDER_SSH_CMD)
+    console.log()
+    console.log('For data copy, please run:')
+    console.log(' ' + _HARDCODE_PROVIDER_DATA_COPY_CMD)
+    console.log()
+    console.log('For login, please run:')
+    console.log(' ' + _HARDCODE_PROVIDER_SSH_CMD)
+    console.log()
     time.sleep(2)
     
     fil_spent_task_id = session_status.add_task("")
