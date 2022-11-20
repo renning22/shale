@@ -7,7 +7,7 @@ from rich.tree import Tree
 def client_list_all_sps_demo():
 
     resources_tree = Tree(
-        f':computer: NVIDIA RTX 2080Ti',
+        f':computer: NVIDIA GeForce RTX 3090',
     )
     resources_tree.add('CPU: 128')
     resources_tree.add('RAM: 256Gi')

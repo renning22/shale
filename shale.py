@@ -18,10 +18,11 @@ def list():
 @click.option('--num_cpus', default=10)
 @click.option('--num_rams', default='12Gi')
 @click.option('--num_gpus', default=1)
-@click.option('--bandwidth', default='1Mi')
-@click.option('--image', default='cuda-ubuntu18.04')
+@click.option('--bandwidth', default='1Mbps')
+@click.option('--image', default='tensorflow/tensorflow:latest-gpu')
 @click.option('--mnt', multiple=True)
-def give_me_container(miner, price, num_cpus, num_rams, num_gpus, bandwidth, image, mnt):
+@click.option('--ssh_pubkey', default='~/.ssh/id_rsa.pub')
+def give_me_container(miner, price, num_cpus, num_rams, num_gpus, bandwidth, image, mnt, ssh_pubkey):
     give_me_container_demo(
         miner=miner,
         price=price,
@@ -30,7 +31,8 @@ def give_me_container(miner, price, num_cpus, num_rams, num_gpus, bandwidth, ima
         num_gpus=num_gpus,
         bandwidth=bandwidth,
         image=image,
-        mnt=mnt)
+        mnt=mnt,
+        ssh_pubkey=ssh_pubkey)
 
 @click.command()
 def lease_container():
