@@ -55,6 +55,10 @@ The first implementation is a terminal command-line tool (CLI) that focused on d
 
 For those who have Shales(FILs) and want to rent computing units.
 
+### List all SPs
+
+![screenshot_1](doc/screenshot_1.png)
+
 ### Request a container
 ```bash
 shale give-me-container \
