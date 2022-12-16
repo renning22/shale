@@ -1,0 +1,520 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "orderId",
+        "type": "uint256"
+      }
+    ],
+    "name": "closeOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "getMarketList",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "ProductId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "Specs",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "FixedPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "Owner",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "Used",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "InMarket",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Product[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "orderId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getOrder",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "OrderId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "User",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ProductId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "ProductOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ProductSpecs",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ProductFixedPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "OrderBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "LoginInfo",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "UserInfo",
+            "type": "string"
+          },
+          {
+            "internalType": "bool",
+            "name": "Confirm",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "BeginOn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "FinishOn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CreateOn",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Order",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "productId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getProduct",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "ProductId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "Specs",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "FixedPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "Owner",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "Used",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "InMarket",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Product",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "productId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "listed",
+        "type": "bool"
+      }
+    ],
+    "name": "modifyProduct",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "getRentOrders",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "OrderId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "User",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ProductId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "ProductOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ProductSpecs",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ProductFixedPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "OrderBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "LoginInfo",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "UserInfo",
+            "type": "string"
+          },
+          {
+            "internalType": "bool",
+            "name": "Confirm",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "BeginOn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "FinishOn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CreateOn",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Order[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "getRentOutOrders",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "OrderId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "User",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ProductId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "ProductOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ProductSpecs",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ProductFixedPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "OrderBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "LoginInfo",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "UserInfo",
+            "type": "string"
+          },
+          {
+            "internalType": "bool",
+            "name": "Confirm",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "BeginOn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "FinishOn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CreateOn",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Order[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "getRentOutProduct",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "ProductId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "Specs",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "FixedPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "Owner",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "Used",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "InMarket",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Product[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "fixedPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "specs",
+        "type": "string"
+      }
+    ],
+    "name": "putProduct",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "orderId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "confirm",
+        "type": "bool"
+      },
+      {
+        "internalType": "string",
+        "name": "loginInfo",
+        "type": "string"
+      }
+    ],
+    "name": "setupOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "productId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "hrs",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "userInfo",
+        "type": "string"
+      }
+    ],
+    "name": "takeProduct",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  }
+]

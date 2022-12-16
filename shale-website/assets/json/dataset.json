@@ -1,0 +1,47 @@
+{
+  "miners": ["t01031", "t01140", "t01138"],
+  "datasets": [
+    {
+      "cid": "bafykbzacedn7inlv3caodlac4fq5ngbczptxblksj3yq7ifs6nqcjv2h3vvne",
+      "filename": "mnist.zip"
+    },
+    {
+      "cid": "bafykbzaceca7fik2pyped74zhj3tzzu6avatm6n5gafgpcn4ifddosng7xtbo",
+      "filename": "t10k-images-idx3-ubyte"
+    },
+    {
+      "cid": "bafykbzacediwsg3k4uhzfut4ivzlbwi7sjjomayvny3u4fh3ytm6fyvbw2vka",
+      "filename": "train-images-idx3-ubyte"
+    },
+    {
+      "cid": "bafykbzacea4iydnltpxtxq2fandb6wyhodrxh32cpsarzgod6chnf6w3xnqae",
+      "filename": "cifar-100-python.tar.gz"
+    },
+    {
+      "cid": "bafyreifxzjtqdibgjcyh7ayhxukvnjokjotr6mvqisnaklzp4mgtvyounm123",
+      "filename": "wikipedia-2022.zip"
+    },
+    {
+      "cid": "bafy2bzaced5uhn6btww3jjrb6qainegrtmai5lsu5lqfusodjs6mvtp3wsjue",
+      "filename": "internet-archive-2021.zip"
+    }
+  ],
+  "images": [
+    {
+      "cid": "bafkreidrsgkip425zjamc3pvmil7dpatss7ncedyaatepxyionxi7py5fqvas",
+      "filename": "ubuntu18.04.img"
+    },
+    {
+      "cid": "bafkreiaqv66m5nd6mwgkk7h5lwqnjzj54s4f7knmnrjhb7ylzqfg2vdo54f1a",
+      "filename": "ubuntu20.04.img"
+    },
+    {
+      "cid": "bafybeifpaez32hlrz5tmr7scndxtjgw3auuloyuyxblynqmjw5saapewmucsa",
+      "filename": "ubuntu20.04_tensorflow_gpu.img"
+    },
+    {
+      "cid": "bafkreiabltrd5zm73pvi7plq25pef3hm7jxhbi3kv4hapegrkfpkqtkbme42f",
+      "filename": "ubuntu20.04_nodejs.img"
+    }
+  ]
+}

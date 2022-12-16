@@ -1,0 +1,26 @@
+@use 'element-plus/dist/index.css';
+@use '@/assets/scss/flex.scss';
+@use '@/assets/scss/public.scss';
+@use '@/assets/scss/common.scss';
+
+:root{
+  --el-color-primary-rgb: 88,110,220 !important;
+  --el-color-primary: #586EDC !important;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+}
+
+html.dark {
+  background: #222;
+  color: white;
+}
+
+a {
+  font-weight: 400;
+  color: var(--el-color-primary);
+}

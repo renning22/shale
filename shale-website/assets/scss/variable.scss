@@ -1,0 +1,8 @@
+$wrapWidth: 75%;
+$mainHeightWithFooter: calc(100vh * 0.78 - 50px);
+$mainHeightWithoutFooter: calc(100vh - 50px);
+
+.page-wrap {
+  margin: 0 auto;
+  width: $wrapWidth;
+}
