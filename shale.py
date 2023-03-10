@@ -46,9 +46,10 @@ def give_me_container(miner, price, num_cpus, num_rams, num_gpus, bandwidth, ima
 @click.option('--cache_dir', default='/tmp', show_default=True)
 @click.option('--fullnode_ip', default='Node21')
 @click.option('--mount', '-m', multiple=True)
-def lease_container(external_ip, num_cpus, num_rams, num_gpus, image, cache_dir, fullnode_ip, mount):
+@click.option('--jupyter', is_flag=True, help='expose jupyter notebook port 8888')
+def lease_container(external_ip, num_cpus, num_rams, num_gpus, image, cache_dir, fullnode_ip, mount, jupyter):
     spawn_container(external_ip, num_cpus, num_rams, num_gpus,
-                    image, cache_dir, fullnode_ip, mount)
+                    image, cache_dir, fullnode_ip, mount, jupyter)
 
 cli.add_command(list)
 cli.add_command(give_me_container)
