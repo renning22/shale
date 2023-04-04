@@ -37,4 +37,4 @@ def client_list_all_sps_demo():
     console = Console()
     console.print(table)
 
-    print('This is DEMO and will be replaced by layer-2 explorer.')
+    print('https://shaleprotocol.com')

@@ -11,6 +11,7 @@ _HARDCODE_PROVIDER_PORT = 8000
 _HARDCODE_PROVIDER_IP = '61.155.163.13'
 _HARDCODE_PROVIDER_SSH_CMD = f'ssh root@{_HARDCODE_PROVIDER_IP} -p {_HARDCODE_PROVIDER_PORT}'
 _HARDCODE_PROVIDER_DATA_COPY_CMD = f'scp -P {_HARDCODE_PROVIDER_PORT} ./example/mnist_train.py root@{_HARDCODE_PROVIDER_IP}:~/'
+_HARDCODE_JUPYTER_NOTEBOOK_URL = 'http://61.155.163.13:8888'
 
 def _get_remote_usage():
     cmd = ['ssh', '-q', f'root@{_HARDCODE_PROVIDER_IP}', '-p 21022', '-n', "docker stats --no-stream --format '{{.CPUPerc}}, {{.MemUsage}}'"]
@@ -44,6 +45,9 @@ def give_me_container_demo(**argkws):
     console.log()
     console.log('For login, please run:')
     console.log(' ' + _HARDCODE_PROVIDER_SSH_CMD)
+    console.log()
+    console.log('Jupyter Notebook:')
+    console.log(' ' + _HARDCODE_JUPYTER_NOTEBOOK_URL)
     console.log()
     time.sleep(2)
     
